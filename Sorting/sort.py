@@ -16,7 +16,6 @@ def sort(a: array, l: int, r: int) -> None:
     mm = -1
     rr = -1
     # Begin implementation
-    # gehe von 
     if r < l: return
     while ll != l:
         rr = l - 1
@@ -29,7 +28,7 @@ def sort(a: array, l: int, r: int) -> None:
                 rr = mm + 1
                 while rr < r and a[rr + 1] >= a[rr]:
                     rr = rr + 1
-                a[slice(ll,rr+1)] = merge(a, ll, mm, rr)
+                merge(a, ll, mm, rr)
             else:
                 rr = mm
 
@@ -39,9 +38,8 @@ def sort(a: array, l: int, r: int) -> None:
 
 # Add your auxiliary methods here
 # Begin implementation
-
-def merge(a: array, ll: int, mm: int, rr: int) -> array:
-    buffer = array('i',[])
+def merge(a: array, ll: int, mm: int, rr: int):
+    buffer = []
     m = mm + 1
     l = ll 
     while l <= mm and m <= rr:
@@ -60,5 +58,7 @@ def merge(a: array, ll: int, mm: int, rr: int) -> array:
         while l <= mm:
             buffer.append(a[l])
             l = l + 1
-    return buffer
+    
+    for i in range(0, len(buffer)):
+        a[ll + i] = buffer[i]
 # End implementation

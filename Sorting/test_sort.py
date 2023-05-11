@@ -55,7 +55,7 @@ class SortTest(unittest.TestCase):
         expected.sort()
         self.assertEqual(a, expected)
 
-    @unittest.skipUnless(perf_test == True, "No performance tests configured")
+    # @unittest.skipUnless(perf_test == True, "No performance tests configured")
     def test_random(self):
         a = array('i', [])
         for i in range(random_numbers):
